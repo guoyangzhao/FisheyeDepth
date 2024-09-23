@@ -26,4 +26,4 @@
 <img src="https://github.com/guoyangzhao/FisheyeDepth/blob/main/images/result-real.png" width="50%" height="auto">
 
 ### Citations:
-If you find TSCLIP useful in your research or applications, please consider giving us a star 🌟 and citing it.
+If you find FisheyeDepth useful in your research or applications, please consider giving us a star 🌟 and citing it.
