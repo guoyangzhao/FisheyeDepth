@@ -1,7 +1,7 @@
 # FisheyeDepth
 ## FisheyeDepth: A Real Scale Self-Supervised Depth Estimation Model for Fisheye Camera
-[![arxiv paper](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/XXX)
-[![demo video](https://img.shields.io/badge/Demo-Video-blue)]([https://www.youtube.com/watch?v=SYICNArRfeI])
+[![arxiv paper](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/abs/2409.15054)
+[![demo video](https://img.shields.io/badge/Demo-Video-blue)](https://www.youtube.com/watch?v=SYICNArRfeI)
 <br>
 
 ### Motivation:
@@ -27,3 +27,15 @@ More visualization results can be viewed through the **[Demo Video](https://www.
 
 ### Citations:
 If you find FisheyeDepth useful in your research or applications, please consider giving us a star 🌟 and citing it.
+
+```bibtex
+@misc{zhao2024fisheyedepthrealscaleselfsupervised,
+      title={FisheyeDepth: A Real Scale Self-Supervised Depth Estimation Model for Fisheye Camera}, 
+      author={Guoyang Zhao and Yuxuan Liu and Weiqing Qi and Fulong Ma and Ming Liu and Jun Ma},
+      year={2024},
+      eprint={2409.15054},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2409.15054}, 
+}
+```
