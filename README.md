@@ -164,13 +164,13 @@ We thank the authors for their excellent work.
 If you find this work useful, please consider citing:
 
 ```bibtex
-@misc{zhao2024fisheyedepthrealscaleselfsupervised,
-  title={FisheyeDepth: A Real Scale Self-Supervised Depth Estimation Model for Fisheye Camera},
-  author={Guoyang Zhao and Yuxuan Liu and Weiqing Qi and Fulong Ma and Ming Liu and Jun Ma},
-  year={2024},
-  eprint={2409.15054},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV}
+@inproceedings{zhao2025fisheyedepth,
+  title={Fisheyedepth: A real scale self-supervised depth estimation model for fisheye camera},
+  author={Zhao, Guoyang and Liu, Yuxuan and Qi, Weiqing and Ma, Fulong and Liu, Ming and Ma, Jun},
+  booktitle={2025 IEEE International Conference on Robotics and Automation (ICRA)},
+  pages={3780--3787},
+  year={2025},
+  organization={IEEE}
 }
 ```
 
