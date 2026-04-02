@@ -1,41 +1,183 @@
-# FisheyeDepth
-## FisheyeDepth: A Real Scale Self-Supervised Depth Estimation Model for Fisheye Camera
-[![arxiv paper](https://img.shields.io/badge/arXiv-Paper-red)](https://arxiv.org/abs/2409.15054)
-[![demo video](https://img.shields.io/badge/Demo-Video-blue)](https://www.youtube.com/watch?v=SYICNArRfeI)
-<br>
 
-### Motivation:
-(a) Fisheye cameras offer a wide FOV and advanced geometric properties, making them well-suited for robotic vision tasks. <br>
-(b) The significant distortion in fisheye images poses a major challenge for depth estimation networks in achieving pixel-wise geometric consistency between consecutive frames. <br>
-(c) Depth estimation models often neglect the real motion scale during training, limiting their applicability in real-world robotic systems. <br>
+## :sunglasses: FisheyeDepth: A Real-Scale Self-Supervised Depth Estimation Model for Fisheye Cameras
 
-### Framework:
-**Self-supervised framework for the fisheye camera.** <br>
-(a) We propose a fisheye projection scheme based on the camera model to eliminate distortion in training, which greatly improves the accuracy of depth estimation. <br>
-(b) We incorporate real-scale poses during the training process, which renders the model suitable for real-world robotic interactions and navigation tasks. <br>
-(c) We devise a multi-channel output module that performs adaptive feature fusion across multiple scales, and this ensures robust depth predictions across different scenes. <br>
-<img src="https://github.com/guoyangzhao/FisheyeDepth/blob/main/images/framework.png" width="80%" height="auto">
+[![arXiv](https://img.shields.io/badge/arXiv-2409.15054-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.15054)
+[![Demo](https://img.shields.io/badge/Demo-Youtube-blue)](https://www.youtube.com/watch?v=SYICNArRfeI)
+[![PR's Welcome](https://img.shields.io/badge/PRs-welcome-red.svg?style=flat)](https://github.com/guoyangzhao/FisheyeDepth/pulls)
 
-### Results:
-**Depth Estimation Results – KITTI-360:** <br>
-<img src="https://github.com/guoyangzhao/FisheyeDepth/blob/main/images/result-360.png" width="50%" height="auto">
+---
 
-**Depth Estimation Results – Real Scene:** <br>
-<img src="https://github.com/guoyangzhao/FisheyeDepth/blob/main/images/result-real.png" width="50%" height="auto">
+## 🔍 Overview
 
-More visualization results can be viewed through the **[Demo Video](https://www.youtube.com/watch?v=SYICNArRfeI)**
+Fisheye cameras provide ultra-wide field-of-view (FOV), making them highly suitable for robotics and autonomous driving. However, severe geometric distortion and the lack of real-scale supervision pose significant challenges for depth estimation.
 
-### Citations:
-If you find FisheyeDepth useful in your research or applications, please consider giving us a star 🌟 and citing it.
+**FisheyeDepth** is a self-supervised depth estimation framework specifically designed for fisheye cameras, with the following key features:
+
+- 📌 Geometry-aware fisheye projection modeling
+- 📌 Real-scale pose supervision for metric depth
+- 📌 Multi-scale adaptive depth decoding
+
+
+
+## 🚀 Motivation
+
+- **Wide FOV Advantage**: Fisheye cameras capture richer environmental context.
+- **Distortion Challenge**: Strong distortion breaks pixel-wise geometric consistency.
+- **Scale Ambiguity**: Conventional self-supervised methods lack real-world scale.
+
+
+
+## 🧠 Framework
+
+**Self-supervised depth estimation framework for fisheye cameras**
+
+- A fisheye projection model is introduced to handle distortion explicitly.
+- Real-scale poses are incorporated during training for metric depth prediction.
+- A multi-channel decoder enables robust multi-scale feature fusion.
+
+<p align="center">
+  <img src="images/framework.png" width="80%">
+</p>
+
+
+
+## 📊 Results
+
+### KITTI-360
+<p align="center">
+  <img src="images/result-360.png" width="50%">
+</p>
+
+### Real-world Scenes
+<p align="center">
+  <img src="images/result-real.png" width="50%">
+</p>
+
+More results can be found in the [Demo Video](https://www.youtube.com/watch?v=SYICNArRfeI)
+
+---
+
+## 📦 Data Preparation
+
+### 1. KITTI-360 Dataset
+
+Please download the official KITTI-360 dataset:
+
+👉 https://www.cvlibs.net/datasets/kitti-360/
+
+After downloading, organize the dataset following the expected directory structure.
+
+
+
+### 2. Resized Fisheye Images (Recommended)
+
+Training directly on original **1400×1400** fisheye images and resizing them online to **384×384** can significantly slow down training.
+
+We recommend resizing images in advance: Resize fisheye images to 384×384 before training
+
+We also provide preprocessed resized images:
+
+👉 **Baidu Netdisk**: [LINK HERE]
+
+
+
+## ⚙️ Environment Setup
+
+We recommend using Conda:
+
+```bash
+conda create -n fisheyedepth python=3.8 -y
+conda activate fisheyedepth
+
+pip3 install -r requirement.txt
+```
+
+
+
+## 🏋️ Training
+
+### 1. Configure Paths
+
+Before training, modify:
+
+```
+configs/kitti360_fisheye.py
+```
+
+Set the following paths:
+
+```python
+path.kitti360_path   # original KITTI-360 dataset
+path.resized_root    # resized fisheye images
+path.base_path       # workspace base path
+path.project_path    # project root
+```
+
+
+
+### 2. Run Training
+
+```bash
+./launcher/train.sh configs/kitti360_fisheye.py 0 $EXPERIMENT_NAME
+```
+
+
+
+## 📈 Evaluation
+
+```bash
+python3 scripts/test.py configs/kitti360_fisheye.py 0 $CHECKPOINT_PATH
+```
+
+
+
+## 🎨 Visualization
+
+We provide visualization tools:
+
+* Jupyter Notebook:
+
+```
+demos/fisheyedepth_demo.ipynb
+```
+
+* Script:
+
+```
+fisheyedepth_save_all_demo.py
+```
+
+---
+
+## 🙏 Acknowledgement
+
+This project is built upon:
+
+* [FSNet](https://github.com/Owen-Liuyuxuan/FSNet)
+
+We thank the authors for their excellent work.
+
+
+
+## 📚 Citation
+
+If you find this work useful, please consider citing:
 
 ```bibtex
 @misc{zhao2024fisheyedepthrealscaleselfsupervised,
-      title={FisheyeDepth: A Real Scale Self-Supervised Depth Estimation Model for Fisheye Camera}, 
-      author={Guoyang Zhao and Yuxuan Liu and Weiqing Qi and Fulong Ma and Ming Liu and Jun Ma},
-      year={2024},
-      eprint={2409.15054},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2409.15054}, 
+  title={FisheyeDepth: A Real Scale Self-Supervised Depth Estimation Model for Fisheye Camera},
+  author={Guoyang Zhao and Yuxuan Liu and Weiqing Qi and Fulong Ma and Ming Liu and Jun Ma},
+  year={2024},
+  eprint={2409.15054},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
 }
 ```
+
+
+
+## ⭐ Star
+
+If this project helps your research, please consider giving a ⭐ on GitHub!
+
+
