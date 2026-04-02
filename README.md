@@ -77,7 +77,7 @@ We recommend resizing images in advance: Resize fisheye images to 384×384 befor
 
 We also provide preprocessed resized images:
 
-👉 **Baidu Netdisk**: [LINK HERE]
+👉 **Baidu Netdisk**: [Link](https://pan.baidu.com/s/1vvOTjipFX_0IlL7CyiIIYg?pwd=fish)
 
 
 
