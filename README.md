@@ -173,8 +173,18 @@ If you find this work useful, please consider citing:
   organization={IEEE}
 }
 ```
-
-
+```bibtex
+@article{liu2023fsnet,
+  title={FSNet: Redesign self-supervised MonoDepth for full-scale depth prediction for autonomous driving},
+  author={Liu, Yuxuan and Xu, Zhenhua and Huang, Huaiyang and Wang, Lujia and Liu, Ming},
+  journal={IEEE Transactions on Automation Science and Engineering},
+  volume={21},
+  number={3},
+  pages={3955--3965},
+  year={2023},
+  publisher={IEEE}
+}
+```
 
 ## ⭐ Star
 
